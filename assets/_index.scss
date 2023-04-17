@@ -1,0 +1,354 @@
+.settings {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    &-header {
+        width: 100%;
+        height: 53.5px;
+        display: flex;
+        justify-content: center;
+        background-color: #f9f9fc;
+
+        &__title {
+            width: 97%;
+            height: 37.5px;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-size: 1.6rem;
+        }
+    }
+
+    &-body {
+        width: 100%;
+        padding: 20px 15px 0 15px;
+
+        &__option {
+            width: 995px;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: flex-start;
+
+            &-header {
+                width: 250px;
+                display: flex;
+
+                .option-header__title {
+                    line-height: 1.5;
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                }
+                .option-header__switcher {
+                    width: 50px;
+                    height: 20px;
+                    display: flex;
+                    align-items: center;
+                    margin: 5px 0 5px 10px;
+                    padding: 0 5px 0 5px;
+                
+                    &-checkbox {
+                        display: block;
+                        opacity: 0;
+                        cursor: pointer;
+                        position: absolute;
+                        z-index: 100;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                
+                        &:checked + .option-header__switcher-newcheckbox::after {
+                            left: calc(100% - 20px);
+                            background-color: $main-color;
+                        }
+                        &:checked + .option-header__switcher-newcheckbox {
+                            border: 2px solid $main-color;
+                        }
+                    }
+                    &-newcheckbox {
+                        display: flex;
+                        width: 50px;
+                        height: 20px;
+                        background-color: rgb(255, 255, 255);
+                        border: 2px solid #ccc;
+                        border-radius: 99px;
+                        align-items: center;
+                        justify-content: center;
+                        transition: 0.4s;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 99px;
+                            background-color: #ccc;
+                            transition: 0.4s;
+                        }
+                    }
+                }
+            }
+
+            &-body {
+                width: 490px;
+
+                .option-body__content {
+                    width: 100%;
+                    height: 100%;
+
+                    &-title {
+                        color: #686869;
+                    }
+
+                    &-block {
+                        width: 370px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: flex-end;
+                        margin-bottom: 20px;
+
+                        .content-block__title {
+                            width: 120px;
+
+                            &-word {
+                                width: 100%;
+                                height: 100%;
+                                line-height: 2.1;
+                            }
+                        }
+
+                        .content-block__anotation {
+                            width: 250px;
+                            text-align: start;
+                        }
+                    }
+
+                    &-descriptions {
+                        font-weight: 600;
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                    }
+
+                    &-checkboxes {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-top: 15px;
+                        padding-bottom: 15px;
+                        border-bottom: 1px solid #ccc;
+                        width: 370px;
+                        z-index: 10;
+                    
+                        .content-checkboxes__container {
+                            display: flex;
+                            justify-content: flex-start;
+
+                            .content-checkboxes__checkbox {
+                                display: block;
+                                opacity: 0;
+                                cursor: pointer;
+                                position: absolute;
+                                z-index: 100;
+                                width: 100%;
+                                height: 100%;
+                                top: 0;
+                                left: 0;
+                        
+                                &:checked + .content-checkboxes__newcheckbox::after {
+                                    opacity: 1;
+                                }
+                            }
+                            .content-checkboxes__newcheckbox {
+                                display: flex;
+                                width: 18px;
+                                height: 18px;
+                                border: 2px solid $main-color;
+                                background-color: rgb(255, 255, 255);
+                                border-radius: 99px;
+                                align-items: center;
+                                justify-content: center;
+                        
+                                &::after {
+                                    content: '';
+                                    display: block;
+                                    width: 10px;
+                                    height: 10px;
+                                    border-radius: 99px;
+                                    background-color: $main-color;
+                                    opacity: 0;
+                                }
+                            }
+                            .disableCB {
+                                border-color: #ccc;
+                                cursor: auto;
+                            }
+                            .tip {
+                                border-radius: 0;
+                                position: relative;
+
+                                &::after {
+                                    width: 18px;
+                                    height: 18px;
+                                    border-radius: 0;
+                                }
+
+                                &CB {
+                                    position: absolute;
+                                    top: -2px;
+                                    left: -2px;
+                                }
+                            }
+                            label {
+                                margin-left: 5px;
+                                line-height: 15px;
+                            }
+                        }
+                        .content-checkboxes__prompt {
+                            width: 20px;
+                            height: 20px;
+                            position: relative;
+                            z-index: 1;
+                        }
+                        .promptBlock {
+                            display: flex;
+                            position: absolute;
+                            right: 75px;
+                            top: calc(50% + 5px);
+                            opacity: 0;
+                            transition: 0.3s;
+                        
+                            &Text {
+                                width: 250px;
+                                background-color: $main-color;
+                                color: #fff;
+                                text-align: center;
+                                padding: 5px;
+                                border-radius: 6px;
+                                position: absolute;
+                                z-index: 10;
+                                margin-left: -60px;
+                                font-size: 0.6rem;
+                        
+                                &::after {
+                                    content: "";
+                                    position: absolute;
+                                    bottom: 100%;
+                                    left: 50%;
+                                    margin-left: -5px;
+                                    border-width: 5px;
+                                    border-style: solid;
+                                    border-color: $main-color transparent transparent transparent;
+                                    rotate: 180deg;
+                                }
+                            }
+                        }
+                    }
+
+                    &-timeZone {
+                        width: 370px;
+                        display: flex;
+                        justify-content: space-between;
+
+                        .content-timeZone__title {
+                            height: 33px;
+                            line-height: 33px;
+                        }
+
+                        .content-timeZone__select {
+                            display: flex;
+                            flex-direction: column;
+                            position: relative;
+                            padding: 0 40px 0 10px;
+                            width: 250px;
+                            height: 33px;
+                            line-height: 1.5;
+                            border: 1px solid $main-color;
+                            padding-left: 10px;
+                            line-height: 33px;
+
+                            &-oc{
+                                position: absolute;
+                                top: 5px;
+                                right: 10px;
+                            }
+
+                            &-regionsContainer {
+                                width: 250px;
+                                background-color: $main-color;
+                                position: absolute;
+                                z-index: 100;
+                                
+                                top: 32px;
+                                left: -1px;
+                                                    
+                                .selectZone {
+                                    background-color: $dark-main-color;
+                                }
+
+                                .content-timeZone__select-regions {
+                                    width: 250px;
+                                    height: 33px;
+                                    line-height: 33px;
+                                    color: white;
+                                    border-radius: 4px;
+                                    padding: 0px 10px 0px 40px;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        background-color: $dark-main-color;
+                                    }
+
+                                    &Selected {
+                                        position: absolute;
+                                        top: 8px;
+                                        left: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &-saveBtn {
+                        width: 100%;
+                        height: 50px;
+                        line-height: 50px;
+                        border-top: 1px solid #ccc;
+                        color: white;
+                        border-radius: 5px;
+                        margin-top: 3rem;
+                        background-color: $main-color;
+                        text-align: center;
+                        transition: 0.5s;
+
+                        &:hover {
+                            background-color: $dark-main-color;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .firstcb {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.inputBlock {
+    width: 250px;
+    height: 33px;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 1rem;
+
+    &:focus {
+        outline: none;
+        border: 1px solid $main-color;
+    }
+}

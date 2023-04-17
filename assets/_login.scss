@@ -1,0 +1,130 @@
+.loginFile {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(0,0,0,.8);
+    z-index: 101;
+
+    &-content {
+        background-color: white;
+        width: 450px;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin: 10px 0 10px 0;
+
+        &__title {
+            width: 80%;
+            height: 37.5px;
+            line-height: 1.5;
+            font-weight: 600;
+            font-size: 1.6rem;       
+        }
+
+        &__inputArea {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+
+            &-login {
+                width: 100%;
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                margin: 10px 0 10px 0;
+
+                .inputArea-login__title {
+                    margin-bottom: 10px;
+                    width: 100%;
+                    height: 20px;
+                    line-height: 1.5;
+                    font-weight: 600;
+                    font-size: 1rem;  
+                }
+
+                .inputArea-login__input {
+                    width: 100%;
+                    height: 33px;
+                    line-height: 1.5;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    padding: 8px 10px;
+                
+                    &:focus {
+                        outline: none;
+                        border: 1px solid $main-color;
+                    }
+                }
+            }
+
+            &-password {
+                width: 100%;
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                margin: 10px 0 10px 0;
+
+                .inputArea-password__title {
+                    margin-bottom: 10px;
+                    width: 100%;
+                    height: 20px;
+                    line-height: 1.5;
+                    font-weight: 600;
+                    font-size: 1rem;  
+                }
+
+                .inputArea-password__input {
+                    width: 100%;
+                    height: 33px;
+                    line-height: 1.5;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    padding: 8px 10px;
+                
+                    &:focus {
+                        outline: none;
+                        border: 1px solid $main-color;
+                    }
+                }
+            }
+        }
+
+        &__loginBtn {
+            width: 80%;
+            height: 50px;
+            line-height: 50px;
+            border-top: 1px solid #ccc;
+            color: white;
+            border-radius: 5px;
+            margin-top: 10px;
+            background-color: $main-color;
+            text-align: center;
+            transition: 0.5s;
+
+            &:hover {
+                background-color: $dark-main-color;
+                cursor: pointer;
+            }
+        }
+
+        &__regBtn {
+            width: 80%;
+            height: 25px;
+            line-height: 25px;
+
+            .regBtn {
+                color: $main-color;
+                cursor: pointer;
+
+                &:hover {
+                    color: $dark-main-color;
+                }
+            }
+        }
+    }
+}
